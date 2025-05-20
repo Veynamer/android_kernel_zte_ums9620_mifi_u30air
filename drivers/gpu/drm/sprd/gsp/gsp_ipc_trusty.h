@@ -22,24 +22,28 @@ ssize_t gsp_tipc_write(void *data_ptr, size_t len);
 ssize_t gsp_tipc_read(void *data_ptr, size_t max_len);
 void gsp_tipc_exit(void);
 #else
-static int gsp_tipc_init(void)
+int gsp_tipc_init(void)
 {
 	GSP_DEBUG("GSP does not support tipc init\n");
 	return 0;
 }
 
-static ssize_t gsp_tipc_write(void *data_ptr, size_t len)
+ssize_t gsp_tipc_write(void *data_ptr, size_t len)
 {
 	GSP_DEBUG("GSP does not support tipc write\n");
 	return 0;
 }
 
-static ssize_t gsp_tipc_read(void *data_ptr, size_t max_len)
+ssize_t gsp_tipc_read(void *data_ptr, size_t max_len)
 {
 	GSP_DEBUG("GSP does not support tipc read\n");
 	return 0;
 }
 
+void gsp_tipc_exit(void)
+{
+	GSP_DEBUG("GSP does not support tipc\n");
+}
 #endif
 
 #endif

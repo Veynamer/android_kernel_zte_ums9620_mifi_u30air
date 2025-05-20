@@ -109,7 +109,6 @@ struct gsp_core {
 	char name[32];
 	int id;
 	int kcfg_num;
-	bool secure_init;
 
 	struct gsp_capability *capa;
 
@@ -194,7 +193,6 @@ struct gsp_core_ops {
 	int __user *(*intercept)(void __user *arg, int index);
 	void (*dump)(struct gsp_core *core);
 	void (*reset)(struct gsp_core *core);
-	int (*devset)(struct device *drm_gsp[GSP_MAX_NUM], struct device *gspdev);
 };
 
 #define CORE_MAX_KCFG_NUM(core)	((core)->kcfg_num)
